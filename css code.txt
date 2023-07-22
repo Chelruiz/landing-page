@@ -1,0 +1,156 @@
+CSS:
+.Me {
+  border-radius: 20%;
+  padding: 60px;
+  width: 350px;
+  height: 350px;
+}
+/*type animation on top on image*/
+.typed-out{
+  color: #fff;
+  font-family: monospace;
+  position: absolute;
+  overflow: hidden;
+  border-right: .15em solid red;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: .15em; 
+  animation: 
+    typing 3.0s steps(30, end),
+    blink-caret .7s step-end infinite;
+}
+
+@keyframes typing{
+  from {
+    width: 0;
+  }
+  to {
+    width: 33%;
+  }
+}
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: pink}
+}
+/*three 3D glowing and rotating boxes*/
+.scene {
+  perspective: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.box {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  transform-style: preserve-3d;
+  margin-bottom: 20px;
+}
+
+.side {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background-color: #C4DFDF;
+  opacity: 0.5;
+  box-shadow: 0 0 20px #C4DFDF, 0 0 40px #C4DFDF, 0 0 60px #C4DFDF, 0 0 80px #C4DFDF;
+  animation: rotate 4s linear infinite;
+}
+
+.side:nth-child(2) {
+  transform: rotateY(90deg);
+  animation-duration: 6s;
+}
+
+.side:nth-child(3) {
+  transform: rotateY(180deg);
+  animation-duration: 8s;
+}
+
+.side:nth-child(4) {
+  transform: rotateY(-90deg);
+  animation-duration: 10s;
+}
+
+
+@keyframes rotate {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+
+/*Hover over code*/
+body:
+{
+  margin: 300;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: relative;
+  height: 100vh;
+  background: #333;
+}
+ul
+{
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+ul li
+{
+ position: relative;
+ list-syle: none;
+ width: 20px;
+ height: 20px;
+ background: #F7E6AD;
+  margin: 0 400px;
+  border-radius: 50;
+  transition: 0.5s;
+  cursor: pointer;
+}
+ul li:hover
+{
+  background: #00F5FF;
+  box-shadow: 0 0 0 4px #99FEFF,
+              0 0 0 6px #00F5FF;
+}
+ul li .content
+{
+  position: absolute;
+  bottom: 55px;
+  width: 400px;
+  background: #FDB9FC;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+  transform: translateX(-50%) translateY(-50px);
+}
+ul li .content:before
+{
+  content:'';
+  postion: absolute;
+  width:30px;
+  height: 30px;
+  background: #99FEFF;
+  bottom: -15;
+  left: 194px;
+  transform: rotate(45deg);
+}
+ul li:hover .content
+{
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0px);
+}
+ul li .content h2
+{
+  margin: 0;
+  padding:0;
+}
